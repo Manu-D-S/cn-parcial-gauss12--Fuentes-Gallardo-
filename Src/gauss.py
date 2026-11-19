@@ -9,6 +9,7 @@ def eliminacion_gaussiana(A, b):
     total_sumas_restas_A = 0
     total_flops_b = 0
     desglose_pasos = []
+    mult_max = 0.0
 
     for k in range(n - 1):
         md_paso_A = 0
@@ -21,6 +22,8 @@ def eliminacion_gaussiana(A, b):
             # Se calcula el multiplicador
             multiplicador = M[i][k] / pivote
             md_paso_A += 1
+            if multiplicador > mult_max:
+                mult_max = multiplicador
             
             # Sabemos que la subdiagonal se vuelve 0, asi que se obvia y pasa a la siguiente columna y se reemplaza el 0 directamente
             for j in range(k + 1, n):
@@ -44,6 +47,7 @@ def eliminacion_gaussiana(A, b):
             "mult_div_A": md_paso_A,
             "sumas_restas_A": sr_paso_A,
             "subtotal_flops_A": md_paso_A + sr_paso_A,
+            "multiplicador maximo": mult_max,
             "flops_b": flops_paso_b
         })
 
@@ -57,6 +61,7 @@ def pivoteo_parcial(A, b):
     total_mult_div_A = 0
     total_sumas_restas_A = 0
     total_flops_b = 0
+    mult_max = 0.0
     
     total_comparaciones = 0
     total_intercambios_filas = 0
@@ -99,6 +104,8 @@ def pivoteo_parcial(A, b):
         for i in range(k + 1, n):
             multiplicador = M[i][k] / pivote
             md_paso_A += 1
+            if multiplicador > mult_max:
+                            mult_max = multiplicador
             
             for j in range(k + 1, n):
                 M[i][j] = M[i][j] - multiplicador * M[k][j]
@@ -118,6 +125,7 @@ def pivoteo_parcial(A, b):
             "paso": k + 1,
             "mult_div_A": md_paso_A,
             "sumas_restas_A": sr_paso_A,
+            "multiplicador maximo": mult_max,
             "flops_A": md_paso_A + sr_paso_A,
             "flops_b": flops_paso_b,
             "comparaciones": comp_paso,
@@ -127,3 +135,29 @@ def pivoteo_parcial(A, b):
     return (M, vec_b, desglose_pasos,
         total_mult_div_A, total_sumas_restas_A, total_flops_b,
         total_comparaciones, total_intercambios_filas, total_movimientos_memoria)
+
+
+def incognitas(U, b):
+    # Se inicia la lista de las incognitas de x en 0
+    n = len(U)
+    x = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+
+    mult_div = 0
+    sumas_restas = 0
+
+    # Se inicia el bucle invertido para empezar en la ultima fila y terminar en la primera para las incognitas de x
+    for i in range(n - 1, -1, -1):
+        suma = 0.0
+
+        # Este cuenta normal para las columnas y acumula el valor de la fila para hacer el despeje de x
+        for j in range(i + 1, n):
+            suma += U[i][j] * x[j]
+            mult_div += 1
+            sumas_restas += 1
+
+            # Se despeja x, se obtiene su valor y se guarda en la lista
+            x[i] = (b[i] - suma) / U[i][i]
+            sumas_restas += 1
+            mult_div += 1
+
+    return x, sumas_restas, mult_div

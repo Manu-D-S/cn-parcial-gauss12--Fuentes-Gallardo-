@@ -2,21 +2,31 @@
 import csv
 import sys
 from pathlib import Path
-from gauss import eliminacion_gaussiana
-from gauss import pivoteo_parcial
+from gauss import eliminacion_gaussiana, pivoteo_parcial, incognitas
 
-ruta_padre = Path(__file__).resolve().parent.parent
-sys.path.append(str(ruta_padre))
-
-from datos.matriz_a import matriz_lista
-from datos.vector_b import b
+esta_carpeta = Path(__file__).resolve().parent
+resumen = esta_carpeta.parent / "datos"
+resumen.mkdir(parents=True, exist_ok=True)
 
 # Programa principal
 if __name__ == "__main__":
+    matriz_lista = []
+    b = []
+    with open(resumen / "matriz_A.csv", mode="r", newline="", encoding="utf-8") as ar:
+        lector = csv.reader(ar)
+        for fila in lector:
+            matriz_lista.append(list(map(float, fila)))
+
+    with open(resumen / "vector_b.csv", mode="r", newline="", encoding="utf8") as ar:
+        lector = csv.reader(ar)
+        for fila in lector:
+            b.append(float(fila[0]))
+
     (U, b_mod, pasos, md_A, sr_A, flops_b) = eliminacion_gaussiana(matriz_lista, b)
     (M, vec_b, desglose_pasos, total_mult_div_A, total_sumas_restas_A,
      total_flops_b, total_comparaciones, total_intercambios_filas,
      total_movimientos_memoria) = pivoteo_parcial(matriz_lista, b)
+    x, sum_res_incognitas, mult_div_incognitas = incognitas(M, vec_b)
 
     print("ELIMINACION GAUSSIANA")
     print(f"{'Paso':<6} | {'Mult/Div (A)':<14} | {'Sum/Rest (A)':<14} | {'Flops A':<10} | {'Flops b':<8}")
@@ -40,7 +50,7 @@ if __name__ == "__main__":
     print("-" * 72)
     print(f"Total Mult/Div en A          : {total_mult_div_A}")
     print(f"Total Sumas/Restas en A      : {total_sumas_restas_A}")
-    print(f"Total Flops en A             : {total_mult_div_A + total_sumas_restas_A} (Mínimo teórico sin alterar)")
+    print(f"Total Flops en A             : {total_mult_div_A + total_sumas_restas_A}")
     print(f"Total Flops en b             : {total_flops_b}")
     print("-" * 72)
     print("SOBRECOSTO DE ESTABILIDAD (PIVOTE0 PARCIAL):")
