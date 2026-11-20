@@ -1,27 +1,27 @@
 ELIMINACIÓN SIN PIVOTEO
 
-{'paso': 1, 'mult_div_A': 132, 'sumas_restas_A': 121, 'flops_b': 22, 'multiplicador_maximo': 27525928321026.33, 'pivote': 1.3407e-08, 'crecimiento': 2641.224254821782}
-{'paso': 2, 'mult_div_A': 110, 'sumas_restas_A': 100, 'flops_b': 20, 'multiplicador_maximo': 27525928321026.33, 'pivote': -25357717.489970785, 'crecimiento': 2641.224254821782}
-{'paso': 3, 'mult_div_A': 90, 'sumas_restas_A': 81, 'flops_b': 18, 'multiplicador_maximo': 27525928321026.33, 'pivote': 0.03546446299886519, 'crecimiento': 2641.224254821782}
-{'paso': 4, 'mult_div_A': 72, 'sumas_restas_A': 64, 'flops_b': 16, 'multiplicador_maximo': 27525928321026.33, 'pivote': 872.6989847569421, 'crecimiento': 2641.224254821782}
-{'paso': 5, 'mult_div_A': 56, 'sumas_restas_A': 49, 'flops_b': 14, 'multiplicador_maximo': 27525928321026.33, 'pivote': -4.489086332890294e-05, 'crecimiento': 2641.224254821782}
-{'paso': 6, 'mult_div_A': 42, 'sumas_restas_A': 36, 'flops_b': 12, 'multiplicador_maximo': 27525928321026.33, 'pivote': 37483476.840188846, 'crecimiento': 2641.224254821782}
-{'paso': 7, 'mult_div_A': 30, 'sumas_restas_A': 25, 'flops_b': 10, 'multiplicador_maximo': 27525928321026.33, 'pivote': -0.00010270727612696185, 'crecimiento': 2641.224254821782}
-{'paso': 8, 'mult_div_A': 20, 'sumas_restas_A': 16, 'flops_b': 8, 'multiplicador_maximo': 27525928321026.33, 'pivote': -84139.22448593029, 'crecimiento': 2641.224254821782}
-{'paso': 9, 'mult_div_A': 12, 'sumas_restas_A': 9, 'flops_b': 6, 'multiplicador_maximo': 27525928321026.33, 'pivote': -0.000648013734895662, 'crecimiento': 2641.224254821782}
-{'paso': 10, 'mult_div_A': 6, 'sumas_restas_A': 4, 'flops_b': 4, 'multiplicador_maximo': 27525928321026.33, 'pivote': -3820.8549169722446, 'crecimiento': 2641.224254821782}
-{'paso': 11, 'mult_div_A': 2, 'sumas_restas_A': 1, 'flops_b': 2, 'multiplicador_maximo': 27525928321026.33, 'pivote': -0.015674942224067425, 'crecimiento': 2641.224254821782}
+{'paso': 1, 'mult_div_A': 143, 'sumas_restas_A': 132, 'flops_b': 22, 'multiplicador_maximo': 27525928321026.33, 'pivote': 1.3407e-08, 'crecimiento': 2641.224254821782}
+{'paso': 2, 'mult_div_A': 120, 'sumas_restas_A': 110, 'flops_b': 20, 'multiplicador_maximo': 27525928321026.33, 'pivote': -25357717.489970785, 'crecimiento': 2641.224254821782}
+{'paso': 3, 'mult_div_A': 99, 'sumas_restas_A': 90, 'flops_b': 18, 'multiplicador_maximo': 27525928321026.33, 'pivote': 0.03546446299886519, 'crecimiento': 2641.224254821782}
+{'paso': 4, 'mult_div_A': 80, 'sumas_restas_A': 72, 'flops_b': 16, 'multiplicador_maximo': 27525928321026.33, 'pivote': 872.6989847569421, 'crecimiento': 2641.224254821782}
+{'paso': 5, 'mult_div_A': 63, 'sumas_restas_A': 56, 'flops_b': 14, 'multiplicador_maximo': 27525928321026.33, 'pivote': -4.489086332890294e-05, 'crecimiento': 2641.224254821782}
+{'paso': 6, 'mult_div_A': 48, 'sumas_restas_A': 42, 'flops_b': 12, 'multiplicador_maximo': 27525928321026.33, 'pivote': 37483476.840188846, 'crecimiento': 2641.224254821782}
+{'paso': 7, 'mult_div_A': 35, 'sumas_restas_A': 30, 'flops_b': 10, 'multiplicador_maximo': 27525928321026.33, 'pivote': -0.00010270727612696185, 'crecimiento': 2641.224254821782}
+{'paso': 8, 'mult_div_A': 24, 'sumas_restas_A': 20, 'flops_b': 8, 'multiplicador_maximo': 27525928321026.33, 'pivote': -84139.22448593029, 'crecimiento': 2641.224254821782}
+{'paso': 9, 'mult_div_A': 15, 'sumas_restas_A': 12, 'flops_b': 6, 'multiplicador_maximo': 27525928321026.33, 'pivote': -0.000648013734895662, 'crecimiento': 2641.224254821782}
+{'paso': 10, 'mult_div_A': 8, 'sumas_restas_A': 6, 'flops_b': 4, 'multiplicador_maximo': 27525928321026.33, 'pivote': -3820.8549169722446, 'crecimiento': 2641.224254821782}
+{'paso': 11, 'mult_div_A': 3, 'sumas_restas_A': 2, 'flops_b': 2, 'multiplicador_maximo': 27525928321026.33, 'pivote': -0.015674942224067425, 'crecimiento': 2641.224254821782}
 
 ELIMINACIÓN CON PIVOTEO PARCIAL ESCALADO
 
-{'paso': 1, 'pivote': -82958.0538, 'fila_intercambiada': 'F1 <-> F8', 'mult_div_A': 132, 'sumas_restas_A': 121, 'comparaciones': 11, 'multiplicador_maximo': 4.448514690203593, 'crecimiento': 1.1584138205503665}
-{'paso': 2, 'pivote': 96457.69765400325, 'fila_intercambiada': 'No', 'mult_div_A': 110, 'sumas_restas_A': 100, 'comparaciones': 10, 'multiplicador_maximo': 9.342497970568605, 'crecimiento': 1.7832023316171275}
-{'paso': 3, 'pivote': 8.822415283109888e-05, 'fila_intercambiada': 'F3 <-> F8', 'mult_div_A': 90, 'sumas_restas_A': 81, 'comparaciones': 9, 'multiplicador_maximo': 2465558200.6506004, 'crecimiento': 1.7832023316171275}
-{'paso': 4, 'pivote': 1643092.5485689982, 'fila_intercambiada': 'F4 <-> F6', 'mult_div_A': 72, 'sumas_restas_A': 64, 'comparaciones': 8, 'multiplicador_maximo': 2465558200.6506004, 'crecimiento': 1.7832023316171275}
-{'paso': 5, 'pivote': 0.00010599691350238304, 'fila_intercambiada': 'F5 <-> F9', 'mult_div_A': 56, 'sumas_restas_A': 49, 'comparaciones': 7, 'multiplicador_maximo': 2465558200.6506004, 'crecimiento': 1.7832023316171275}
-{'paso': 6, 'pivote': 0.018168363623128608, 'fila_intercambiada': 'F6 <-> F11', 'mult_div_A': 42, 'sumas_restas_A': 36, 'comparaciones': 6, 'multiplicador_maximo': 2465558200.6506004, 'crecimiento': 1.7832023316171275}
-{'paso': 7, 'pivote': 101990.84068828532, 'fila_intercambiada': 'F7 <-> F12', 'mult_div_A': 30, 'sumas_restas_A': 25, 'comparaciones': 5, 'multiplicador_maximo': 2465558200.6506004, 'crecimiento': 1.7832023316171275}
-{'paso': 8, 'pivote': 5.83762519317318e-05, 'fila_intercambiada': 'F8 <-> F9', 'mult_div_A': 20, 'sumas_restas_A': 16, 'comparaciones': 4, 'multiplicador_maximo': 2465558200.6506004, 'crecimiento': 1.7832023316171275}
-{'paso': 9, 'pivote': 16924.03667881964, 'fila_intercambiada': 'F9 <-> F11', 'mult_div_A': 12, 'sumas_restas_A': 9, 'comparaciones': 3, 'multiplicador_maximo': 2465558200.6506004, 'crecimiento': 1.7832023316171275}
-{'paso': 10, 'pivote': -4658.155579296352, 'fila_intercambiada': 'No', 'mult_div_A': 6, 'sumas_restas_A': 4, 'comparaciones': 2, 'multiplicador_maximo': 2465558200.6506004, 'crecimiento': 1.7832023316171275}
-{'paso': 11, 'pivote': 0.008293479784912742, 'fila_intercambiada': 'No', 'mult_div_A': 2, 'sumas_restas_A': 1, 'comparaciones': 1, 'multiplicador_maximo': 2465558200.6506004, 'crecimiento': 1.7832023316171275}
+{'paso': 1, 'pivote': -82958.0538, 'fila_intercambiada': 'F1 <-> F8', 'mult_div_A': 143, 'sumas_restas_A': 132, 'comparaciones': 11, 'divisiones_pivoteo': 12, 'multiplicador_maximo': 4.448514690203593, 'crecimiento': 1.1584138205503665}
+{'paso': 2, 'pivote': 96457.69765400325, 'fila_intercambiada': 'No', 'mult_div_A': 120, 'sumas_restas_A': 110, 'comparaciones': 10, 'divisiones_pivoteo': 11, 'multiplicador_maximo': 9.342497970568605, 'crecimiento': 1.7832023316171275}
+{'paso': 3, 'pivote': 8.822415283109888e-05, 'fila_intercambiada': 'F3 <-> F8', 'mult_div_A': 99, 'sumas_restas_A': 90, 'comparaciones': 9, 'divisiones_pivoteo': 10, 'multiplicador_maximo': 2465558200.6506004, 'crecimiento': 1.7832023316171275}
+{'paso': 4, 'pivote': 1643092.5485689982, 'fila_intercambiada': 'F4 <-> F6', 'mult_div_A': 80, 'sumas_restas_A': 72, 'comparaciones': 8, 'divisiones_pivoteo': 9, 'multiplicador_maximo': 2465558200.6506004, 'crecimiento': 1.7832023316171275}
+{'paso': 5, 'pivote': 0.00010599691350238304, 'fila_intercambiada': 'F5 <-> F9', 'mult_div_A': 63, 'sumas_restas_A': 56, 'comparaciones': 7, 'divisiones_pivoteo': 8, 'multiplicador_maximo': 2465558200.6506004, 'crecimiento': 1.7832023316171275}
+{'paso': 6, 'pivote': 0.018168363623128608, 'fila_intercambiada': 'F6 <-> F11', 'mult_div_A': 48, 'sumas_restas_A': 42, 'comparaciones': 6, 'divisiones_pivoteo': 7, 'multiplicador_maximo': 2465558200.6506004, 'crecimiento': 1.7832023316171275}
+{'paso': 7, 'pivote': 101990.84068828532, 'fila_intercambiada': 'F7 <-> F12', 'mult_div_A': 35, 'sumas_restas_A': 30, 'comparaciones': 5, 'divisiones_pivoteo': 6, 'multiplicador_maximo': 2465558200.6506004, 'crecimiento': 1.7832023316171275}
+{'paso': 8, 'pivote': 5.83762519317318e-05, 'fila_intercambiada': 'F8 <-> F9', 'mult_div_A': 24, 'sumas_restas_A': 20, 'comparaciones': 4, 'divisiones_pivoteo': 5, 'multiplicador_maximo': 2465558200.6506004, 'crecimiento': 1.7832023316171275}
+{'paso': 9, 'pivote': 16924.03667881964, 'fila_intercambiada': 'F9 <-> F11', 'mult_div_A': 15, 'sumas_restas_A': 12, 'comparaciones': 3, 'divisiones_pivoteo': 4, 'multiplicador_maximo': 2465558200.6506004, 'crecimiento': 1.7832023316171275}
+{'paso': 10, 'pivote': -4658.155579296352, 'fila_intercambiada': 'No', 'mult_div_A': 8, 'sumas_restas_A': 6, 'comparaciones': 2, 'divisiones_pivoteo': 3, 'multiplicador_maximo': 2465558200.6506004, 'crecimiento': 1.7832023316171275}
+{'paso': 11, 'pivote': 0.008293479784912742, 'fila_intercambiada': 'No', 'mult_div_A': 3, 'sumas_restas_A': 2, 'comparaciones': 1, 'divisiones_pivoteo': 2, 'multiplicador_maximo': 2465558200.6506004, 'crecimiento': 1.7832023316171275}

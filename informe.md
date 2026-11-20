@@ -51,9 +51,9 @@ Los multiplicadores se guardan en $L$, evitando tener que calcularlos nuevamente
 
 En ambos métodos se sigue un orden de eliminación por columnas. Para cada columna se identifica el pivote, se calculan los multiplicadores de las filas inferiores y se actualizan únicamente los elementos necesarios para formar la matriz triangular superior.
 
-Se evita modificar los elementos que ya fueron eliminados, ya que estos corresponden a ceros de la matriz triangular. Además, cada multiplicador se calcula una sola vez y se reutiliza en las actualizaciones correspondientes como se nos indico para evitar el costo operacional redundante.
+Se evita modificar los elementos que ya fueron eliminados, ya que estos corresponden a ceros de la matriz triangular. Además, cada multiplicador se calcula una sola vez y se reutiliza en las actualizaciones correspondientes como se nos indicó para evitar el costo operacional redundante.
 
-Esta organización permite reducir operaciones innecesarias y mantener el costo computacional cercano al mínimo teórico esperado. Según la guía que se nos proporciono, se considera como referencia un total aproximado de 1486 operaciones aritméticas, con una tolerancia del 10 %. En nuestra implementación se obtuvieron 1366 operaciones para el método sin pivoteo y 1378 para el método con pivoteo escalado, lo que representa diferencias de -8,08 % y -7,27 %, respectivamente. Por lo tanto, ambos métodos se encuentran dentro del margen permitido por lo cual cumple lo antes establecido.
+Esta organización permite reducir operaciones innecesarias y mantener el costo computacional cercano al mínimo teórico esperado. Según la guía que se nos proporcionó, se considera como referencia un total aproximado de 1486 operaciones aritméticas, con una tolerancia del 10 %. En nuestra implementación se obtuvieron 1486 operaciones para el método sin pivoteo y 1486 para el método con pivoteo escalado. Por lo tanto, ambos métodos coinciden con el valor de referencia y cumplen con el margen establecido.
 
 ### 5.4. Implementación
 
@@ -76,20 +76,20 @@ En este método, además de actualizar los elementos de la matriz $A$, se actual
 
 | Paso | Mult./div. en A | Sumas/restas en A | Operaciones en b | Total |
 |---:|---:|---:|---:|---:|
-| 1 | 132 | 121 | 22 | 275 |
-| 2 | 110 | 100 | 20 | 230 |
-| 3 | 90 | 81 | 18 | 189 |
-| 4 | 72 | 64 | 16 | 152 |
-| 5 | 56 | 49 | 14 | 119 |
-| 6 | 42 | 36 | 12 | 90 |
-| 7 | 30 | 25 | 10 | 65 |
-| 8 | 20 | 16 | 8 | 44 |
-| 9 | 12 | 9 | 6 | 27 |
-| 10 | 6 | 4 | 4 | 14 |
-| 11 | 2 | 1 | 2 | 5 |
-| **Total** | **572** | **506** | **132** | **1210** |
+| 1 | 143 | 132 | 22 | 297 |
+| 2 | 120 | 110 | 20 | 250 |
+| 3 | 99 | 90 | 18 | 207 |
+| 4 | 80 | 72 | 16 | 168 |
+| 5 | 63 | 56 | 14 | 133 |
+| 6 | 48 | 42 | 12 | 102 |
+| 7 | 35 | 30 | 10 | 75 |
+| 8 | 24 | 20 | 8 | 52 |
+| 9 | 15 | 12 | 6 | 33 |
+| 10 | 8 | 6 | 4 | 18 |
+| 11 | 3 | 2 | 2 | 7 |
+| **Total** | **638** | **572** | **132** | **1342** |
 
-A las 1210 operaciones de eliminación se agregan 156 operaciones correspondientes a la sustitución hacia atrás. Por lo tanto, el total del método sin pivoteo es de **1366 operaciones aritméticas** como se meciono anteriormente.
+Las actualizaciones de la matriz $A$ representan 1210 operaciones aritméticas. A estas se agregan 132 operaciones correspondientes a la actualización del vector de términos independientes $b$ y 144 operaciones de sustitución hacia atrás. Por lo tanto, el total del método sin pivoteo es de **1486 operaciones aritméticas**.
 
 ### 6.2. Eliminación con pivoteo parcial escalado
 
@@ -97,22 +97,22 @@ En este otro método se realiza la factorización de la matriz mediante las matr
 
 | Paso | Mult./div. en A | Sumas/restas en A | Total |
 |---:|---:|---:|---:|
-| 1 | 132 | 121 | 253 |
-| 2 | 110 | 100 | 210 |
-| 3 | 90 | 81 | 171 |
-| 4 | 72 | 64 | 136 |
-| 5 | 56 | 49 | 105 |
-| 6 | 42 | 36 | 78 |
-| 7 | 30 | 25 | 55 |
-| 8 | 20 | 16 | 36 |
-| 9 | 12 | 9 | 21 |
-| 10 | 6 | 4 | 10 |
-| 11 | 2 | 1 | 3 |
-| **Total** | **572** | **506** | **1078** |
+| 1 | 143 | 132 | 275 |
+| 2 | 120 | 110 | 230 |
+| 3 | 99 | 90 | 189 |
+| 4 | 80 | 72 | 152 |
+| 5 | 63 | 56 | 119 |
+| 6 | 48 | 42 | 90 |
+| 7 | 35 | 30 | 65 |
+| 8 | 24 | 20 | 44 |
+| 9 | 15 | 12 | 27 |
+| 10 | 8 | 6 | 14 |
+| 11 | 3 | 2 | 5 |
+| **Total** | **638** | **572** | **1210** |
 
-A las 1078 operaciones de factorización se agregan 300 operaciones correspondientes a las sustituciones hacia adelante y hacia atrás. De esta manera, el total del método con pivoteo escalado es de **1378 operaciones aritméticas**.
+Las operaciones de factorización representan 1210 operaciones aritméticas. A estas se agregan 276 operaciones correspondientes a las sustituciones hacia adelante y hacia atrás. De esta manera, el total del método con pivoteo parcial escalado es de **1486 operaciones aritméticas**.
 
-Adicionalmente, durante la selección de pivotes se realizaron 66 comparaciones y 8 intercambios de filas. Estos valores se contabilizan por separado y no forman parte del total aritmético.
+Adicionalmente, durante la selección de pivotes se realizaron 66 comparaciones y 8 intercambios de filas. También se contabilizaron 132 comparaciones para calcular las escalas de las filas y 77 divisiones para calcular las razones utilizadas en la selección de pivotes. Estos valores se registran por separado y no forman parte del total de operaciones aritméticas.
 
 ### 6.3. Comparación con la cota de referencia
 
@@ -130,10 +130,10 @@ $$
 
 | Método | Operaciones | Diferencia respecto a la referencia | Cumplimiento |
 |---|---:|---:|---|
-| Sin pivoteo | 1366 | -8,08 % | Dentro del margen |
-| Pivoteo escalado | 1378 | -7,27 % | Dentro del margen |
+| Sin pivoteo | 1486 | 0 % | Dentro del margen |
+| Pivoteo escalado | 1486 | 0 % | Dentro del margen |
 
-Ambos métodos se encuentran dentro del margen de tolerancia establecido. Aunque el método con pivoteo escalado realiza algunas operaciones adicionales debido a las sustituciones y al manejo de la factorización, su costo aritmético total continúa dentro del límite permitido.
+Ambos métodos coinciden con el valor de referencia de 1486 operaciones aritméticas. Sin embargo, el pivoteo parcial escalado requiere operaciones adicionales relacionadas con el cálculo de las escalas, la selección de pivotes y los intercambios de filas, las cuales se contabilizan por separado.
 
 ### 6.4. Convención de conteo
 
@@ -160,14 +160,16 @@ Los resultados obtenidos fueron:
 |---|---:|---:|
 | Multiplicador máximo | $2.7526\times10^{13}$ | $2.4656\times10^9$ |
 | Factor de crecimiento | 2641.2243 | 1.7832 |
-| Comparaciones | 0 | 66 |
+| Comparaciones de selección de pivote | 0 | 66 |
+| Comparaciones para calcular escalas | 0 | 132 |
+| Divisiones para calcular razones | 0 | 77 |
 | Intercambios de filas | 0 | 8 |
 
-Sin pivoteo, el multiplicador máximo alcanza aproximadamente $2.75\times10^{13}$. Esto se debe principalmente a que el algoritmo utiliza como primer pivote el elemento $a_{11}=1.3407\times10^{-8}$, cuya magnitud es aproximadamente doce órdenes de magnitud menor que la de $a_{21}$. Esto provoca multiplicadores extremadamente grandes y aumenta los errores de redondeo.
+Sin pivoteo, el multiplicador máximo alcanza aproximadamente $2.75\times10^{13}$. Esto se debe principalmente a que el algoritmo utiliza como primer pivote el elemento $a_{11}=1.3407\times10^{-8}$, cuya magnitud es aproximadamente doce órdenes de magnitud menor que la de $a_{21}$. Como consecuencia, se generan multiplicadores extremadamente grandes, lo que aumenta la sensibilidad a los errores de redondeo.
 
-Por esta razón, el pivote $a_{11}$ es inaceptable, ya que su magnitud es demasiado pequeña respecto a otros elementos de la misma columna.
+Por esta razón, el pivote $a_{11}$ resulta inadecuado, ya que su magnitud es demasiado pequeña en comparación con otros elementos de la misma columna.
 
-Con pivoteo parcial escalado, el factor de crecimiento disminuye de 2641.22 a 1.78. Sin embargo, el multiplicador máximo continúa siendo elevado: $2.47\times10^9$, y aparece en el tercer paso. Esto demuestra que el pivoteo escalado reduce el crecimiento de la matriz, pero no garantiza que todos los multiplicadores sean pequeños.
+Con pivoteo parcial escalado, el factor de crecimiento disminuye de 2641.22 a 1.78, lo que representa una mejora importante en el comportamiento numérico del proceso. Sin embargo, el multiplicador máximo todavía alcanza $2.47\times10^9$ y aparece en el tercer paso. Esto demuestra que el pivoteo escalado reduce el crecimiento de la matriz, pero no garantiza que todos los multiplicadores sean pequeños.
 
 ### 7.2. Análisis de la mantisa
 
@@ -308,7 +310,7 @@ Esto confirma que el procedimiento permitió obtener una solución que satisface
 
 Durante el proyecto se utilizaron dos estrategias para afrontar la problematica y comparar sus resultados y costes.
 
-La eliminación sin pivoteo tuvo un costo de 1366 operaciones aritméticas, mientras que el pivoteo parcial escalado requirió 1378 operaciones, además de 66 comparaciones y 8 intercambios de filas. Aunque el segundo método presenta un costo ligeramente mayor, se eligió porque ofrece un comportamiento numérico más favorable. Esto se observa en la reducción del factor de crecimiento de 2641.22 a 1.78 y en la disminución de los multiplicadores máximos.
+La eliminación sin pivoteo y el pivoteo parcial escalado tuvieron un costo de 1486 operaciones aritméticas cada uno. Sin embargo, el segundo método requiere adicionalmente 132 comparaciones para calcular las escalas, 66 comparaciones durante la selección de pivotes, 77 divisiones para calcular las razones y 8 intercambios de filas. Aunque ambos métodos presentan el mismo costo aritmético contabilizado, se eligió el pivoteo parcial escalado porque ofrece un comportamiento numérico más favorable. Esto se observa en la reducción del factor de crecimiento de 2641.22 a 1.78 y en la disminución de los multiplicadores máximos.
 
 También se aplicó refinamiento iterativo, que permitió reducir la norma infinito del residuo desde $2.10\times10^{-10}$ hasta $2.82\times10^{-24}$. Por lo tanto, el costo adicional de esta se puede justificar debido a la mejora que este presenta.
 
@@ -352,3 +354,8 @@ Por otra parte, en `main.py` se utilizó como apoyo para organizar las llamadas 
 El uso de esta herramienta no presentó mayores inconvenientes, debido a que conocíamos la lógica de los métodos y teníamos presentes los posibles errores que debíamos revisar. Por esta razón, las sugerencias proporcionadas fueron evaluadas antes de incorporarlas al proyecto.
 
 En conclusión, la inteligencia artificial se utilizó como una herramienta de asistencia para la revisión, depuración y comprensión del código. No reemplazó el desarrollo ni la ejecución de los procedimientos que habiamos decidido, sino que facilitó la detección de errores que se tenia , nos permitió verificar que la implementación se ajustara a los requisitos de la actividad lo cual fue crucial en los datos y tambien los errores ortografia que teniamos.
+## 14. Fuentes bibliográficas
+
+1. Burden, R. L., Faires, J. D., & Burden, A. M. (2017). *Análisis numérico* (10.ª ed.). Cengage. Capítulo 6.
+
+2. Golub, G. H., & Van Loan, C. F. (2013). *Matrix Computations* (4.ª ed.). Johns Hopkins University Press. Capítulo 3.

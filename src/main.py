@@ -29,13 +29,28 @@ def cargar_matriz(ruta):
         ]
 
 
+
 def cargar_vector(ruta):
-    with open(ruta, newline="", encoding="utf-8") as archivo:
-        return [
-            Decimal(fila[0].strip())
-            for fila in csv.reader(archivo)
-            if fila
-        ]
+    valores = []
+
+    with open(ruta, "r", encoding="utf-8-sig") as f:
+        for numero_linea, linea in enumerate(f, start=1):
+            linea = linea.strip()
+
+            if not linea:
+                continue
+
+            partes = linea.replace(",", " ").replace(";", " ").split()
+
+            try:
+                valor = Decimal(partes[-1])
+                valores.append(valor)
+            except (InvalidOperation, IndexError):
+                raise ValueError(
+                    f"Error en {ruta}, línea {numero_linea}: {linea!r}"
+                )
+
+    return valores
 
 
 def guardar_solucion(x_sin, x_con, x_refinada):
