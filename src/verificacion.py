@@ -1,4 +1,3 @@
-
 # Codigo hecho por Ariel Gallardo y Manuel Fuentes
 
 from decimal import Decimal, getcontext
