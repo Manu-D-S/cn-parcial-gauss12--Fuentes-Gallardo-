@@ -39,16 +39,25 @@ if __name__ == "__main__":
     verificacion(matriz_lista, b, x)
 
     # Se crea o sobreescribe el archivo donde estara la matriz superior
-    ar = open(resultados / "traza_eliminacion.txt", mode="w", encoding="utf8")
+    with open(resultados / "traza_eliminacion.txt", mode="w", encoding="utf8") as ar:
 
-    # Se escribe la matriz luego del pivoteo parcial
-    ar.write("Sin pivoteo\n")
-    for fila in U:
-        ar.write(f"{fila}\n")
+        # Se escribe la matriz luego de la eliminacion sin pivoteo
+        ar.write("Sin pivoteo\n")
+        for fila in U:
+            ar.write(f"{fila}\n")
 
-    ar.write("\nCon pivoteo\n")
-    for fila in M:
-        ar.write(f"{fila}\n")
+        # Se escribe la matriz luego de la eliminacion con pivoteo parcial
+        ar.write("\nCon pivoteo\n")
+        for fila in M:
+            ar.write(f"{fila}\n")
+        ar.close()
+
+    # Se crea o sobreescribe el archivo donde estara el vector de resultados de x
+    with open(resultados / "solucion.csv", mode="w", newline="", encoding="utf8") as ar:
+        ar.write("Vector incognitas x\n")
+        for fila in x:
+            valor_x = 1
+            ar.write(f"x{valor_x} = {fila}\n")
 
     # Resultados en terminal
     print("ELIMINACION GAUSSIANA")
