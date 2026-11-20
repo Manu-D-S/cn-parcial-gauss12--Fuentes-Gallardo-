@@ -12,7 +12,7 @@ Resolver un sistema de ecuaciones lineales de 12 incógnitas mediante eliminaci�
 Para la correcta ejecución de este programa se necesita la libreria "numpy" con su version 2.5.4 y la librería por defecto de python "pathlib", así como el lenguaje python en su version 3.14.8, de igual forma los requerimientos de librerias estan en el archivo "requeriments.txt", usar "pip install -r requirements.txt" para instalarlos directamente con su version correspondiente.
 
 ## Ejecución
-Para ejecutar el programa es necesario ejecutar el comando "python Src/main.py", junto con esto, el programa generará una carpeta llamada "resultados" la que se encontrara un .txt llamado residuo que contiene r y su norma infinito, un .txt llamado "traza_eliminacion" que contiene 2 matrices siendo estas los resultados de aplicar eliminación gaussiana con y sin pivote parcial y un archivo .csv que contiene el vector x con sus resultados correspondientes (x1 a x12)
+Para ejecutar el programa es necesario ejecutar el comando "python Src/main.py", junto con esto, el programa generará una carpeta llamada "resultados" la que contendrá un .txt llamado "residuo" que contiene r y su norma infinito, un .txt llamado "traza_eliminacion" que contiene 2 matrices siendo estas los resultados de aplicar eliminación gaussiana con y sin pivote parcial y un archivo .csv que contiene el vector x con sus resultados correspondientes (x1 a x12)
 
 
 ## Estructura del proyecto
