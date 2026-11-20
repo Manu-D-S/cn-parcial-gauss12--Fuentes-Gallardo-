@@ -1,0 +1,8 @@
+r y su norma infinito
+Norma infinito residuo inicial: 2.897568e-07
+Norma infinito residuo refinado: 3.675943e+06
+
+Sin mejora adicional: la solucion inicial ya alcanzo el límite de precision float64
+
+Diferencia maxima: 2.138418e+00
+Diferencia maxima: 1.013074e+01
