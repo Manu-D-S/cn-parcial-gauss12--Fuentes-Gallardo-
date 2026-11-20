@@ -1,6 +1,6 @@
 # cn-parcial-gauss12--Fuentes-Gallardo-
 
-Repositorio destinado a resolver un sistema de ecuaciones lineales de 12 incógnitas mediante eliminación gaussiana con dos metodos distintos.
+Resolver un sistema de ecuaciones lineales de 12 incógnitas mediante eliminación gaussiana con dos metodos distintos.
 
 ## Integrantes y asignatura
 
