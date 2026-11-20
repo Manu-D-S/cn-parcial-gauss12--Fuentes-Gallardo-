@@ -1,3 +1,4 @@
+
 # Codigo hecho por Ariel Gallardo y Manuel Fuentes
 
 def eliminacion_gaussiana(A, b):
@@ -49,7 +50,7 @@ def eliminacion_gaussiana(A, b):
             "flops_b": flops_b,
             "multiplicador_maximo": mult_max,
             "pivote": pivote,
-            "crecimiento": max_final
+            "crecimiento": max_final / max_inicial
         })
 
     stats = {
@@ -150,7 +151,7 @@ def factorizar_pivoteo_escalado(A):
             "sumas_restas_A": sr,
             "comparaciones": comparaciones,
             "multiplicador_maximo": mult_max,
-            "crecimiento": max_final
+            "crecimiento": max_final / max_inicial
         })
 
     stats = {
