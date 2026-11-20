@@ -6,13 +6,13 @@ Enlace:https://github.com/Manu-D-S/cn-parcial-gauss12--Fuentes-Gallardo-
 
 ## 4.Planteamiento
 
-El objetivo de este proyecto es evaluar la resolución de un sistema de ecuaciones lineales de orden \(n=12\), mediante el método de eliminación gaussiana, considerando dos enfoques: uno sin pivoteo y otro utilizando pivoteo parcial escalado.
+El objetivo de este proyecto es evaluar la resolución de un sistema de ecuaciones lineales de orden $n=12$, mediante el método de eliminación gaussiana, considerando dos enfoques: uno sin pivoteo y otro utilizando pivoteo parcial escalado.
 
 Buscamos evaluar el funcionamiento y las diferencias entre ambos métodos, considerando sus costos operacionales, la precisión de los resultados al trabajar con números de magnitudes muy pequeñas y la estabilidad numérica durante los cálculos.
 
-La matriz \(A\) representa los coeficientes del sistema de ecuaciones, el vector \(x\) contiene las incógnitas y el vector \(b\) corresponde a los términos independientes.
+La matriz $A$ representa los coeficientes del sistema de ecuaciones, el vector $x$ contiene las incógnitas y el vector $b$ corresponde a los términos independientes.
 
-Esta evaluación es importante debido a que la matriz presenta diferencias significativas en la magnitud de sus elementos. Un ejemplo de esto es el primer elemento de la matriz, cuyo valor es aproximadamente \(1.3407\times10^{-8}\), mientras que en la misma columna existen valores considerablemente mayores.
+Esta evaluación es importante debido a que la matriz presenta diferencias significativas en la magnitud de sus elementos. Un ejemplo de esto es el primer elemento de la matriz, cuyo valor es aproximadamente $1.3407\times10^{-8}$, mientras que en la misma columna existen valores considerablemente mayores.
 
 Al realizar la eliminación sin pivoteo, utilizar un valor tan pequeño como pivote puede generar multiplicadores de gran magnitud. Esto puede amplificar los errores de redondeo y afectar los cálculos posteriores, perjudicando la precisión de la solución.
 
@@ -40,9 +40,9 @@ Se selecciona la fila con la mayor razón y, si es necesario, se intercambiamos 
 
 Este procedimiento nos permite evitar el uso de pivotes demasiado pequeños en relación con la escala de su fila como en el caso anterior, reduciendo los multiplicadores excesivos y mejorando la estabilidad numérica.
 
-La factorización obtenida se representa mediante las matrices \(L\) y \(U\), donde \(L\) almacena los multiplicadores utilizados durante la eliminación y \(U\) contiene la matriz triangular superior.
+La factorización obtenida se representa mediante las matrices $L$ y $U$, donde $L$ almacena los multiplicadores utilizados durante la eliminación y $U$ contiene la matriz triangular superior.
 
-Los multiplicadores se guardan en \(L\), evitando tener que calcularlos nuevamente durante las sustituciones. Posteriormente, se resuelve el sistema mediante sustitución hacia adelante y hacia atrás para evalaur los valores de nuestras nuevas incognitas xa.
+Los multiplicadores se guardan en $L$, evitando tener que calcularlos nuevamente durante las sustituciones. Posteriormente, se resuelve el sistema mediante sustitución hacia adelante y hacia atrás para evalaur los valores de nuestras nuevas incognitas xa.
 
 ### 5.3. Orden de las operaciones y reutilización
 
@@ -69,7 +69,7 @@ Para evaluar el costo computacional de ambos métodos, se registró la cantidad 
 
 ### 6.1. Eliminación sin pivoteo
 
-En este método, además de actualizar los elementos de la matriz \(A\), se actualiza directamente el vector de términos independientes \(b\) durante cada paso.
+En este método, además de actualizar los elementos de la matriz $A$, se actualiza directamente el vector de términos independientes $b$ durante cada paso.
 
 | Paso | Mult./div. en A | Sumas/restas en A | Operaciones en b | Total |
 |---:|---:|---:|---:|---:|
@@ -90,7 +90,7 @@ A las 1210 operaciones de eliminación se agregan 156 operaciones correspondient
 
 ### 6.2. Eliminación con pivoteo parcial escalado
 
-En este otro método se realiza la factorización de la matriz mediante las matrices \(L\) y \(U\). Las operaciones de actualización del vector \(b\) se realizan posteriormente mediante sustitución hacia adelante.
+En este otro método se realiza la factorización de la matriz mediante las matrices $L$ y $U$. Las operaciones de actualización del vector $b$ se realizan posteriormente mediante sustitución hacia adelante.
 
 | Paso | Mult./div. en A | Sumas/restas en A | Total |
 |---:|---:|---:|---:|
@@ -117,13 +117,13 @@ Según lo pedido, se considera como referencia un mínimo teórico aproximado de
 
 Por lo tanto, el intervalo permitido es:
 
-\[
+$$
 1486(0.90)\leq N\leq1486(1.10)
-\]
+$$
 
-\[
+$$
 1337.4\leq N\leq1634.6
-\]
+$$
 
 | Método | Operaciones | Diferencia respecto a la referencia | Cumplimiento |
 |---|---:|---:|---|
@@ -155,16 +155,16 @@ Los resultados obtenidos fueron:
 
 | Indicador | Sin pivoteo | Pivoteo parcial escalado |
 |---|---:|---:|
-| Multiplicador máximo | \(2.7526\times10^{13}\) | \(2.4656\times10^9\) |
+| Multiplicador máximo | $2.7526\times10^{13}$ | $2.4656\times10^9$ |
 | Factor de crecimiento | 2641.2243 | 1.7832 |
 | Comparaciones | 0 | 66 |
 | Intercambios de filas | 0 | 8 |
 
-Sin pivoteo, el multiplicador máximo alcanza aproximadamente \(2.75\times10^{13}\). Esto se debe principalmente a que el algoritmo utiliza como primer pivote el elemento \(a_{11}=1.3407\times10^{-8}\), cuya magnitud es aproximadamente doce órdenes de magnitud menor que la de \(a_{21}\). Esto provoca multiplicadores extremadamente grandes y aumenta los errores de redondeo.
+Sin pivoteo, el multiplicador máximo alcanza aproximadamente $2.75\times10^{13}$. Esto se debe principalmente a que el algoritmo utiliza como primer pivote el elemento $a_{11}=1.3407\times10^{-8}$, cuya magnitud es aproximadamente doce órdenes de magnitud menor que la de $a_{21}$. Esto provoca multiplicadores extremadamente grandes y aumenta los errores de redondeo.
 
-Por esta razón, el pivote \(a_{11}\) es inaceptable, ya que su magnitud es demasiado pequeña respecto a otros elementos de la misma columna.
+Por esta razón, el pivote $a_{11}$ es inaceptable, ya que su magnitud es demasiado pequeña respecto a otros elementos de la misma columna.
 
-Con pivoteo parcial escalado, el factor de crecimiento disminuye de 2641.22 a 1.78. Sin embargo, el multiplicador máximo continúa siendo elevado: \(2.47\times10^9\), y aparece en el tercer paso. Esto demuestra que el pivoteo escalado reduce el crecimiento de la matriz, pero no garantiza que todos los multiplicadores sean pequeños.
+Con pivoteo parcial escalado, el factor de crecimiento disminuye de 2641.22 a 1.78. Sin embargo, el multiplicador máximo continúa siendo elevado: $2.47\times10^9$, y aparece en el tercer paso. Esto demuestra que el pivoteo escalado reduce el crecimiento de la matriz, pero no garantiza que todos los multiplicadores sean pequeños.
 
 ### 7.2. Análisis de la mantisa
 
@@ -172,10 +172,10 @@ Los cálculos se realizaron utilizando números de doble precisión (`float`), q
 
 Se utiliza el logaritmo en base 2 del multiplicador máximo como estimación de su capacidad de amplificación:
 
-| Método | Multiplicador máximo | \(\log_2(|m_{\max}|)\) |
+| Método | Multiplicador máximo | $\log_2(|m_{\max}|)$ |
 |---|---:|---:|
-| Sin pivoteo | \(2.75\times10^{13}\) | 44.65 bits |
-| Pivoteo escalado | \(2.47\times10^9\) | 31.20 bits |
+| Sin pivoteo | $2.75\times10^{13}$ | 44.65 bits |
+| Pivoteo escalado | $2.47\times10^9$ | 31.20 bits |
 
 Estos valores no representan una medición exacta de los bits perdidos, sino una estimación de la amplificación. La pérdida real también depende de las operaciones posteriores, la cancelación numérica y el condicionamiento del sistema.
 
@@ -193,24 +193,24 @@ En conclusión, el pivoteo parcial escalado ofrece un comportamiento más favora
 
 Según la guía, el número de condición de la matriz es aproximadamente:
 
-\[
+$$
 \kappa(A)\approx 3.1\times10^{13}
-\]
+$$
 
 Este valor indica que el sistema está mal condicionado, por lo que pequeñas variaciones en los datos de entrada pueden producir cambios importantes en la solución.
 
 Considerando la precisión doble (`float`), cuya precisión de máquina es:
 
-\[
+$$
 \varepsilon \approx 2.22\times10^{-16}
-\]
+$$
 
 Se obtiene la siguiente cota:
 
-\[
+$$
 \kappa(A)\cdot\varepsilon
 \approx 6.88\times10^{-3}
-\]
+$$
 
 Esta cota representa un error relativo potencial cercano al 0.688 %, equivalente aproximadamente a dos dígitos significativos confiables en el peor caso.
 
@@ -225,18 +225,18 @@ Se presentan las soluciones obtenidas mediante eliminación gaussiana sin pivote
 
 | Incógnita | Sin pivoteo | Con pivoteo | Refinada | Dígitos iniciales correctos | Dígitos refinados correctos |
 |---|---:|---:|---:|---:|---:|
-| \(x_1\) | 7.384915716927e-01 | 7.384915717404e-01 | 7.384915717405e-01 | 13 | 25 |
-| \(x_2\) | -1.205937385991e+00 | -1.205937386583e+00 | -1.205937386583e+00 | 12 | 25 |
-| \(x_3\) | 4.387196576063e-03 | 4.387196254167e-03 | 4.387196253927e-03 | 10 | 22 |
-| \(x_4\) | -9.172647502986e-02 | -9.172647482482e-02 | -9.172647482467e-02 | 11 | 24 |
-| \(x_5\) | 2.846109322130e+00 | 2.846109322433e+00 | 2.846109322433e+00 | 13 | 25 |
-| \(x_6\) | -6.281531466726e-03 | -6.281531937646e-03 | -6.281531937997e-03 | 10 | 22 |
-| \(x_7\) | 1.473820715848e+00 | 1.473820715447e+00 | 1.473820715446e+00 | 12 | 25 |
-| \(x_8\) | -3.849284141692e-02 | -3.849284147699e-02 | -3.849284147703e-02 | 11 | 24 |
-| \(x_9\) | 9.152647323449e-01 | 9.152647324915e-01 | 9.152647324916e-01 | 12 | 25 |
-| \(x_{10}\) | -2.607139458280e+00 | -2.607139457958e+00 | -2.607139457958e+00 | 13 | 25 |
-| \(x_{11}\) | 5.187367027263e-02 | 5.187367033093e-02 | 5.187367033097e-02 | 12 | 24 |
-| \(x_{12}\) | -1.084937205143e+00 | -1.084937204847e+00 | -1.084937204846e+00 | 12 | 25 |
+| $x_1$ | 7.384915716927e-01 | 7.384915717404e-01 | 7.384915717405e-01 | 13 | 25 |
+| $x_2$ | -1.205937385991e+00 | -1.205937386583e+00 | -1.205937386583e+00 | 12 | 25 |
+| $x_3$ | 4.387196576063e-03 | 4.387196254167e-03 | 4.387196253927e-03 | 10 | 22 |
+| $x_4$ | -9.172647502986e-02 | -9.172647482482e-02 | -9.172647482467e-02 | 11 | 24 |
+| $x_5$ | 2.846109322130e+00 | 2.846109322433e+00 | 2.846109322433e+00 | 13 | 25 |
+| $x_6$ | -6.281531466726e-03 | -6.281531937646e-03 | -6.281531937997e-03 | 10 | 22 |
+| $x_7$ | 1.473820715848e+00 | 1.473820715447e+00 | 1.473820715446e+00 | 12 | 25 |
+| $x_8$ | -3.849284141692e-02 | -3.849284147699e-02 | -3.849284147703e-02 | 11 | 24 |
+| $x_9$ | 9.152647323449e-01 | 9.152647324915e-01 | 9.152647324916e-01 | 12 | 25 |
+| $x_{10}$ | -2.607139458280e+00 | -2.607139457958e+00 | -2.607139457958e+00 | 13 | 25 |
+| $x_{11}$ | 5.187367027263e-02 | 5.187367033093e-02 | 5.187367033097e-02 | 12 | 24 |
+| $x_{12}$ | -1.084937205143e+00 | -1.084937204847e+00 | -1.084937204846e+00 | 12 | 25 |
 
 La solución con pivoteo escalado presenta entre 10 y 13 dígitos significativos correctos. Después del refinamiento iterativo, se alcanzan entre 22 y 25 dígitos correctos.
 
@@ -250,22 +250,22 @@ Para comprobar la precisión de la solución obtenida, se calculó el residuo de
 
 El residuo se define como:
 
-\[
+$$
 r=b-Ax
-\]
+$$
 
 Para evaluar el error global se utilizó la norma infinito:
 
-\[
+$$
 \|r\|_{\infty}=\max_i |r_i|
-\]
+$$
 
 En la solución inicial con pivoteo parcial escalado se obtuvo:
 
-\[
+$$
 \|r_{\text{inicial}}\|_{\infty}
 =2.09695651654\times10^{-10}
-\]
+$$
 
 Este valor representa la diferencia entre el vector de términos independientes y el resultado de multiplicar la matriz por la solución calculada.
 
@@ -275,12 +275,12 @@ Se aplicó un paso de refinamiento iterativo para mejorar la solución. Este pro
 
 La norma del residuo después del refinamiento fue:
 
-\[
+$$
 \|r_{\text{final}}\|_{\infty}
 =2.8221763338\times10^{-24}
-\]
+$$
 
-La comparación de ambos resultados muestra que el residuo disminuyó aproximadamente \(7.43\times10^{13}\) veces. Por lo tanto, el refinamiento iterativo logró mejorar considerablemente la precisión de la solución.
+La comparación de ambos resultados muestra que el residuo disminuyó aproximadamente $7.43\times10^{13}$ veces. Por lo tanto, el refinamiento iterativo logró mejorar considerablemente la precisión de la solución.
 
 ### 10.3. Comparación con una biblioteca numérica
 
@@ -290,14 +290,14 @@ Las diferencias máximas observadas fueron:
 
 | Comparación | Diferencia máxima |
 |---|---:|
-| Solución inicial frente a NumPy | \(8.3267\times10^{-14}\) |
-| Solución refinada frente a NumPy | \(3.5727\times10^{-13}\) |
+| Solución inicial frente a NumPy | $8.3267\times10^{-14}$ |
+| Solución refinada frente a NumPy | $3.5727\times10^{-13}$ |
 
 NumPy se utilizó únicamente como referencia de control y no como solución exacta, ya que también trabaja con precisión de punto flotante.
 
 ### 10.4. Conclusión de la verificación
 
-Los resultados muestran que el refinamiento iterativo redujo significativamente el residuo del sistema, pasando de aproximadamente \(2.10\times10^{-10}\) a \(2.82\times10^{-24}\).
+Los resultados muestran que el refinamiento iterativo redujo significativamente el residuo del sistema, pasando de aproximadamente $2.10\times10^{-10}$ a $2.82\times10^{-24}$.
 
 Esto confirma que el procedimiento permitió obtener una solución que satisface el sistema con mayor precisión. La comparación con NumPy aporta un control adicional, mientras que la verificación principal se basa en el residuo calculado con aritmética de precisión extendida.
 
@@ -307,9 +307,9 @@ Durante el proyecto se utilizaron dos estrategias para afrontar la problematica 
 
 La eliminación sin pivoteo tuvo un costo de 1366 operaciones aritméticas, mientras que el pivoteo parcial escalado requirió 1378 operaciones, además de 66 comparaciones y 8 intercambios de filas. Aunque el segundo método presenta un costo ligeramente mayor, se eligió porque ofrece un comportamiento numérico más favorable. Esto se observa en la reducción del factor de crecimiento de 2641.22 a 1.78 y en la disminución de los multiplicadores máximos.
 
-También se aplicó refinamiento iterativo, que permitió reducir la norma infinito del residuo desde \(2.10\times10^{-10}\) hasta \(2.82\times10^{-24}\). Por lo tanto, el costo adicional de esta se puede justificar debido a la mejora que este presenta.
+También se aplicó refinamiento iterativo, que permitió reducir la norma infinito del residuo desde $2.10\times10^{-10}$ hasta $2.82\times10^{-24}$. Por lo tanto, el costo adicional de esta se puede justificar debido a la mejora que este presenta.
 
-Si el tamaño del sistema aumentara a \(n=1000\), utilizaría pivoteo parcial escalado y consideraría una implementación optimizada con otras herramientas para evitar perdida de infromacion con numeros tan bajos. Para una matriz densa, la eliminación gaussiana tiene un costo computacional de orden \(O(n^3)\), por lo que el tiempo de cálculo y la memoria necesaria aumentarían considerablemente con un aumento tan grande en nxn con n=1000. Además, se deberia evaluar si la matriz presenta estructura dispersa para utilizar métodos especializados que eviten almacenar y operar sobre tantos elementos nulos.
+Si el tamaño del sistema aumentara a $n=1000$, utilizaría pivoteo parcial escalado y consideraría una implementación optimizada con otras herramientas para evitar perdida de infromacion con numeros tan bajos. Para una matriz densa, la eliminación gaussiana tiene un costo computacional de orden $O(n^3)$, por lo que el tiempo de cálculo y la memoria necesaria aumentarían considerablemente con un aumento tan grande en nxn con n=1000. Además, se deberia evaluar si la matriz presenta estructura dispersa para utilizar métodos especializados que eviten almacenar y operar sobre tantos elementos nulos.
 
 En conclusión,debido a la complejidad presentada para el sistema estudiado con un sistema de N*N con N=12  se priorizó la confiabilidad numérica por sobre una pequeña reducción del costo computacional. El pivoteo parcial escalado, junto con la verificación en precisión extendida y el refinamiento iterativo, permitió obtener una solución más confiable y comprobar su precisión.
 ## 12.	Reproducibilidad
