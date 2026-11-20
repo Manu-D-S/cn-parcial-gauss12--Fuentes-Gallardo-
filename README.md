@@ -6,6 +6,7 @@ Resolver un sistema de ecuaciones lineales de 12 incógnitas mediante eliminaci�
 
 - **Integrantes:** Ariel Gallardo y Manuel Fuentes.
 - **Asignatura:** Computación Numérica, sección 2.
+- **Universidad:** Universidad Católica del Maule.
 
 ## Requisitos
 
@@ -13,7 +14,6 @@ Resolver un sistema de ecuaciones lineales de 12 incógnitas mediante eliminaci�
 ## Ejecución
 
 
-## Estructura del proyecto
 
 ## Estructura del proyecto
 
@@ -65,8 +65,8 @@ Solución obtenida después del refinamiento iterativo, expresada con 10 cifras 
 
 ## Informe
 
-Para consultar el desarrollo, [informe.md](informe.md).
+Para consultar el desarrollo completo, los procedimientos, el análisis numérico y la verificación de los resultados, revisa el [informe.md](informe.md).
 
 ## Licencia y uso
 
-Este repositorio fue desarrollado con fines de studio y practicas para la asignatura Computación Numérica de la Universidad Católica del Maule. Su contenido está destinado al estudio y revision de metodos vistos durante la asignatura.
+Este repositorio fue desarrollado con fines de estudio y práctica para la asignatura Computación Numérica de la Universidad Católica del Maule. Su contenido está destinado al estudio y revisión de los métodos vistos durante la asignatura.
