@@ -1,7 +1,10 @@
 ##  3.Identificación
 Asignatura: Computación Numérica
+
 Proyecto: Eliminación gaussiana con y sin pivoteo escalado
+
 Integrantes: Manuel Fuentes y Ariel Gallardo
+
 Enlace:https://github.com/Manu-D-S/cn-parcial-gauss12--Fuentes-Gallardo-
 
 ## 4.Planteamiento
@@ -314,6 +317,26 @@ Si el tamaño del sistema aumentara a $n=1000$, utilizaría pivoteo parcial esca
 En conclusión,debido a la complejidad presentada para el sistema estudiado con un sistema de N*N con N=12  se priorizó la confiabilidad numérica por sobre una pequeña reducción del costo computacional. El pivoteo parcial escalado, junto con la verificación en precisión extendida y el refinamiento iterativo, permitió obtener una solución más confiable y comprobar su precisión.
 ## 12.	Reproducibilidad
 
+Para reproducir los resultados del proyecto se utilizó el siguiente entorno:
+
+- **Python:** 3.14.9.
+- **Librerías:** versiones especificadas en el archivo `requirements.txt`.
+- **Sistema operativo:** Arch Linux.
+- **Ejecución:** desde la carpeta raíz del proyecto, con el entorno virtual activado.
+
+Para instalar las dependencias:
+
+```bash
+pip install -r requirements.txt
+```
+
+Para ejecutar el programa:
+
+```bash
+python src/main.py
+```
+
+El programa utiliza los archivos `datos/matriz_a.csv` y `datos/vector_b.csv` como entrada y genera los resultados correspondientes en la carpeta `resultados/`.
 ## 13. Uso de inteligencia artificial
 
 Durante el desarrollo del proyecto no fue necesario utilizar inteligencia artificial para diseñar la estructura inicial del repositorio. Sin embargo, se utilizó como herramienta de apoyo durante la implementación, revisión y verificación del código.
