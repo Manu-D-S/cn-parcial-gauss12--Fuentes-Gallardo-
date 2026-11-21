@@ -61,7 +61,7 @@ Solución obtenida después del refinamiento iterativo, expresada con 10 cifras 
 |---|---:|
 | Operaciones sin pivoteo | 1486 |
 | Operaciones con pivoteo escalado | 1486 |
-| Norma infinito del residuo refinado, \(\|r\|_\infty\) | \(2.8222 \times 10^{-24}\) |
+| Norma infinito del residuo refinado, $\|r_{\text{refinado}}\|_\infty$ | $2.8222 \times 10^{-24}$ |
 
 ## Informe
 
