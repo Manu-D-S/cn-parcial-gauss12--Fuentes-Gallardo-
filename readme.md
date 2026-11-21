@@ -59,8 +59,8 @@ Solución obtenida después del refinamiento iterativo, expresada con 10 cifras 
 
 | Indicador | Resultado |
 |---|---:|
-| Operaciones sin pivoteo | 1366 |
-| Operaciones con pivoteo escalado | 1378 |
+| Operaciones sin pivoteo | 1486 |
+| Operaciones con pivoteo escalado | 1486 |
 | Norma infinito del residuo refinado | \(2.8222\times10^{-24}\) |
 
 ## Informe
